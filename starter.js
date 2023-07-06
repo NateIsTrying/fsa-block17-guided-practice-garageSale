@@ -20,27 +20,54 @@ const namesAndPrices = (items) => {
 }
 
 const garageNamesAndPrices = garageSale.map(namesAndPrices);
-console.log(garageNamesAndPrices);
+// console.log(garageNamesAndPrices);
 
 
 // Prompt 5
 // Print an array of all the items that are less or equal to $50.
+const lessThan50 = (items) => {
+    return items.price <= 50;
+}
 
-// console.log(garageSale.filter(lessThan50));
+const itemsLessThan50 = garageSale.filter(lessThan50);
+// console.log(itemsLessThan50);
+
 
 // Prompt 6
 // Print an array of all the items whose condition are "used."
+const usedItems = (items) => {
+    return items.condition === 'used';
+}
+
+const usedGarageItems = garageSale.filter(usedItems);
+// console.log(usedGarageItems);
 
 
 // Prompt 7
 // Print all the prices in garageSale array into a new array.
+const salesPrices = (items) => {
+    return items.price;
+}
 
-
+const garageSalesPrices = garageSale.map(salesPrices);
+// console.log(garageSalesPrices);
 
 
 // Prompt 8
 // Print the total cost of the garageSale array.
+const totalCost = (total, items) => {
+    return total += items.price;
+}
+
+const garageItemsTotal = garageSale.reduce(totalCost, 0);
+// console.log(garageItemsTotal);
 
 
 // Prompt 9
 // Print the average price for the garage sale.
+const averagePrice = (totalItemsCost, amountOfItems) => {
+    return totalItemsCost/amountOfItems;
+}
+
+const totalAveragePrice = averagePrice(garageItemsTotal, garageSale.length).toFixed(2);
+console.log(totalAveragePrice);
